@@ -1,8 +1,12 @@
-import { createEcrPublic, getUsEastProvider } from "../aws";
+import { Provider } from "@pulumi/aws/provider";
+import { createEcrPublic } from "../aws";
 
-export const compositionEcrPublicFlow = () => {
-  const usEastProvider = getUsEastProvider();
+type Props = {
+  usEastProvider: Provider;
+};
+
+export const compositionEcrPublicFlow = (props: Props) => {
   createEcrPublic({
-    opts: { dependsOn: [usEastProvider], provider: usEastProvider },
+    opts: { dependsOn: [props.usEastProvider], provider: props.usEastProvider },
   });
 };
