@@ -17,7 +17,7 @@ export const createEcrPublic = (props: Props): aws.ecrpublic.Repository => {
   return new aws.ecrpublic.Repository(
     `aws-ecr-punlic-${stack}`,
     {
-      repositoryName: `zerohack-${stack}`,
+      repositoryName: `zerohack`,
       tags: { ...getTagEnvIacFree() },
       ...props.args,
     },
