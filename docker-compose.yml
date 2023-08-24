@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  pulumi_client:
+    container_name: pulumi-client
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PULUMI_VERSION: "3.78.1"
+    tty: true
+    volumes:
+      - ./:/app
+    env_file:
+      - .env

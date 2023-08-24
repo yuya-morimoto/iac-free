@@ -1,9 +1,8 @@
-import * as pulumi from "@pulumi/pulumi";
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
+import { compositionEcrPublicFlow } from "./src/flows";
+import { baseFlow } from "./src/flows/baseFlow";
 
-// Create an AWS resource (S3 Bucket)
-const bucket = new aws.s3.Bucket("my-bucket");
+// Generate base
+const baseResources = baseFlow();
 
-// Export the name of the bucket
-export const bucketName = bucket.id;
+// Generate free ecr public repository
+compositionEcrPublicFlow({ usEastProvider: baseResources.usEastProvider });
