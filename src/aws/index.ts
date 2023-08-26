@@ -1,4 +1,4 @@
 import { getUsEastProvider } from "./provider";
-import { createEcrPublic } from "./ecr";
+import { createEcrPublicSvgParser } from "./ecr";
 
-export { getUsEastProvider, createEcrPublic };
+export { getUsEastProvider, createEcrPublicSvgParser };
