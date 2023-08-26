@@ -15,7 +15,7 @@ type Props = {
 export const createEcrPublic = (props: Props): aws.ecrpublic.Repository => {
   const stack = pulumi.getStack();
   return new aws.ecrpublic.Repository(
-    `aws-ecr-punlic-${stack}`,
+    `aws-ecr-public-${stack}`,
     {
       repositoryName: `zerohack`,
       tags: { ...getTagEnvIacFree() },
