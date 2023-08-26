@@ -9,15 +9,17 @@ type Props = {
 };
 
 /**
- * Create public ECR
+ * Create public ECR svg_parser
  * ※ This resource can only be used in the "us-east-1" region. base region is "ap-northeast-1"
  */
-export const createEcrPublic = (props: Props): aws.ecrpublic.Repository => {
+export const createEcrPublicSvgParser = (
+  props: Props
+): aws.ecrpublic.Repository => {
   const stack = pulumi.getStack();
   return new aws.ecrpublic.Repository(
-    `aws-ecr-public-${stack}`,
+    `aws-ecr-public-svg-parser-${stack}`,
     {
-      repositoryName: `zerohack`,
+      repositoryName: `svg_parser`,
       tags: { ...getTagEnvIacFree() },
       ...props.args,
     },

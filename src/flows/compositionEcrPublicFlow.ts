@@ -1,12 +1,12 @@
 import { Provider } from "@pulumi/aws/provider";
-import { createEcrPublic } from "../aws";
+import { createEcrPublicSvgParser } from "../aws";
 
 type Props = {
   usEastProvider: Provider;
 };
 
 export const compositionEcrPublicFlow = (props: Props) => {
-  createEcrPublic({
+  createEcrPublicSvgParser({
     opts: { dependsOn: [props.usEastProvider], provider: props.usEastProvider },
   });
 };
